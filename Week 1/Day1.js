@@ -26,4 +26,3 @@ let binarysearchtree = function(root){
     return result 
 };
 
-console.log(binarysearchtree)
