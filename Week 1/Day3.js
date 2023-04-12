@@ -35,3 +35,5 @@ var reverse = function(x) {
         if(result<=-limit || result> limit) return 0;
         return result;
 };
+
+//String to Integer (atoi)//
