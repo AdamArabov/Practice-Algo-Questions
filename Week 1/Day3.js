@@ -22,3 +22,5 @@ var convert = function(s, numRows) {
     return res
 };
 
+//Reverse Integer//
+
