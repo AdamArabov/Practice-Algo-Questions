@@ -1,3 +1,5 @@
+// Palindrome Number//
+
 var isPalindrome = function(x) {
     let reverseString= ''
     let xString = x.toString()
