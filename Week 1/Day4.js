@@ -42,3 +42,33 @@ var isMatch = function(s, p) {
 };
 
 //Container With Most Water//
+var maxArea = function(height) {
+    let max = 0
+    
+    let i = 0
+    let j = height.length - 1
+    
+    while (i < j) {
+      max = Math.max(max, (j - i) * Math.min(height[i], height[j]))
+      
+      // try to move the cursors
+      if (height[i] < height[j]) {
+        // move i to the next bigger border
+        let k = i + 1
+        while (height[k] <= height[i]) {
+          k += 1
+        }
+        
+        i = k
+      } else {
+        let k = j -  1
+        while (height[k] <= height[j]) {
+          k -= 1
+        }
+        
+        j = k
+      }
+    }
+  
+    return max
+};
