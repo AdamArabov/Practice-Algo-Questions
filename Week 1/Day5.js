@@ -29,3 +29,7 @@ const map = {
     
       return sum
   };
+
+  //Longest Common Prefix//
+
+  
