@@ -238,4 +238,32 @@ var fourSum = function(nums, target) {
 }
 
 //Remove Nth Node From End of List//
-
+var removeNthFromEnd = function(head, n) {
+    // scan it twice
+    // first get the length -> l
+    // then remove the l - n element
+    // O(N + N - n) => O(2N)
+  
+    // or fast-slow cursor
+    const start = new ListNode(null)
+    start.next = head
+    
+    let fast = start
+    while (n-- > 0) {
+      fast = fast.next
+    }
+  
+    let slow = start
+    
+    while (fast.next !== null) {
+      fast = fast.next
+      slow = slow.next
+    }
+    
+    // remove the next of slow
+    const target = slow.next
+    slow.next = target.next
+    target.next = null
+    
+    return start.next
+};
