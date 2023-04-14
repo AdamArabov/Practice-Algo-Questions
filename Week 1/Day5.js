@@ -159,4 +159,33 @@ var threeSum = function(nums) {
   };
 
   //Letter Combinations of a Phone Number//
+  var letterCombinations = function(digits) {
+    if (digits.length === 0) return []
+    const map = {
+      1: [],
+      2: ['a','b','c'],
+      3: ['d', 'e', 'f'],
+      4: ['g', 'h', 'i'],
+      5: ['j', 'k', 'l'],
+      6: ['m', 'n', 'o'],
+      7: ['p', 'q', 'r', 's'],
+      8: ['t', 'u', 'v'],
+      9: ['w', 'x', 'y', 'z']
+    }
+    
+    const result = ['']
+    
+    for (let i = 0; i < digits.length; i++) {
+      const digit = digits[i]
+      
+      result.push(null)
+      let head
+      while ((head = result.shift()) !== null) {
+        for (let char of map[digit]) {
+          result.push(head + char)
+        }
+      }
+    }
   
+    return result
+};
