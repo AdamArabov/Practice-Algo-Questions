@@ -236,3 +236,6 @@ var fourSum = function(nums, target) {
   
     return result
 }
+
+//Remove Nth Node From End of List//
+
