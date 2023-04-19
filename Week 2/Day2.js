@@ -143,4 +143,43 @@ return Math.min(Math.max(result * sign, -(2 ** 31)), 2**31 - 1)
 
     //Next Permutation//
 
+    if (nums.length < 2) return
+  
+    // 1. find the first turning point from right, left most one.  the one to the left is the target to swap
     
+    let turningPoint = null
+    for (let i = nums.length - 1; i > 0; i--) {
+      if (nums[i] > nums[i - 1]) {
+        turningPoint = i
+        break
+      }
+    }
+    
+    if (turningPoint === null) {
+      nums.reverse()
+      return
+    }
+    
+    // 2. find the first number bigger than swap target from right. swap
+    
+    const targetIndex = turningPoint - 1
+    
+    for (let i = nums.length - 1; i >= turningPoint; i--) {
+      if (nums[i] > nums[targetIndex]) {
+        [nums[i], nums[targetIndex]] = [nums[targetIndex], nums[i]]
+        break
+      }  
+    }
+    
+    // 3. reverse the order from right till the turning point
+    
+    let start = turningPoint
+    let end = nums.length - 1
+    
+    while (start < end) {
+      [nums[start], nums[end]] = [nums[end], nums[start]]
+      start += 1
+      end -= 1
+    }
+    
+    return
