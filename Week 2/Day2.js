@@ -66,3 +66,35 @@ var strStr = function(haystack, needle) {
 };
 
 //Divide Two Integers//
+
+let sign = 1
+if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+  sign = -1
+}
+
+dividend = Math.abs(dividend)
+divisor = Math.abs(divisor)
+
+const baseOn2 = []
+const baseOnDivisor = []
+
+let i = 1
+let j = divisor
+while (j <= dividend) {
+  baseOn2.push(i)
+  baseOnDivisor.push(j)
+  
+  i += i
+  j += j
+}
+
+// collect the result
+let result = 0
+for (let k = baseOnDivisor.length - 1; k > -1; k--) {
+  if (dividend >= baseOnDivisor[k]) {
+    result += baseOn2[k]
+    dividend -= baseOnDivisor[k]
+  }
+}
+
+return Math.min(Math.max(result * sign, -(2 ** 31)), 2**31 - 1)
