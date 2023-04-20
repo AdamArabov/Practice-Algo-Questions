@@ -9,3 +9,5 @@ function Hello (x) {
 console.log(Hello(5))
 
 //dsdssdsds
+
+addEventListener
