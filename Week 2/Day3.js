@@ -5,3 +5,5 @@ function Hello (x) {
         x + 3
     }
 }
+
+console.log(Hello(5))
